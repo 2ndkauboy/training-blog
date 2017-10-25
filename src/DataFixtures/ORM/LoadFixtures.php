@@ -12,6 +12,7 @@
 namespace App\DataFixtures\ORM;
 
 use App\Entity\Post;
+use App\Utils\Slugger;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -48,7 +49,7 @@ class LoadFixtures implements FixtureInterface, ContainerAwareInterface
 
             $post->setTitle($this->getRandomPostTitle());
             $post->setSummary($this->getRandomPostSummary());
-            $post->setSlug($this->container->get('app.slugger')->slugify($post->getTitle()));
+            $post->setSlug($this->container->get(Slugger::class)->slugify($post->getTitle()));
             $post->setContent($this->getPostContent());
             $post->setAuthorEmail('anna_admin@symfony.com');
             $post->setPublishedAt(new \DateTime('now - '.$i.'days'));

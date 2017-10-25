@@ -27,4 +27,7 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    App\Utils\Slugger:
+        public: true
+
     Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand: ~
