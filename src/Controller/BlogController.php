@@ -16,7 +16,7 @@ class BlogController extends Controller
     /**
      * @Route("", name="index")
      */
-    public function indexAction(): Response
+    public function indexAction(Post $page): Response
     {
         $posts = $this->getDoctrine()->getRepository(Post::class)->findLatest($page);
 
