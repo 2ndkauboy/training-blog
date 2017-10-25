@@ -5,7 +5,7 @@
 {% block main %}
     <h1>{{ post.title }}</h1>
 
-    {{ post.content }}
+    {{ post.content|md2html }}
 
     <h3>{{ post.comments|length }} Comment{{ post.comments|length > '1' ? 's' }}</h3>
 
@@ -16,7 +16,7 @@
                 <strong>{{ comment.publishedAt|date }}</strong>
             </h4>
             <div class="col-sm-9">
-                {{ comment.content }}
+                {{ comment.content|md2html }}
             </div>
         </div>
     {% else %}
