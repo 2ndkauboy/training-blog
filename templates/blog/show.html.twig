@@ -8,7 +8,11 @@
     {{ post.content|md2html }}
 
     <div id="post-add-comment" class="well">
-        {{ render(controller('App\\Controller\\BlogController:commentFormAction', { 'id': post.id })) }}
+        {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {{ render(controller('App\\Controller\\BlogController:commentFormAction', { 'id': post.id })) }}
+        {% else %}
+            Please login first
+        {% endif %}
     </div>
 
     <h3>{{ 'post.num_comments'|transchoice(post.comments|length) }}</h3>

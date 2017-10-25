@@ -17,6 +17,7 @@
         "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
         "symfony/monolog-bundle": "^3.1",
+        "symfony/security-bundle": "^3.3",
         "symfony/validator": "^4.0@beta",
         "symfony/yaml": "^4.0"
     },
