@@ -14,12 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends Controller
 {
     /**
-     * @Route("", name="index")
+     * @Route("", name="index", defaults={"page":1})
+     * @Route("{page}", name="index_paged", requirements={"page":"\d+"})
      */
-    public function indexAction(Post $page): Response
+    public function indexAction($page): Response
     {
         $posts = $this->getDoctrine()->getRepository(Post::class)->findLatest($page);
 
-        return $this->render('index.html.twig');
+        return $this->render('index.html.twig', ['posts' => $posts]);
     }
 }
