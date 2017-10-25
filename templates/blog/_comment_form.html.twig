@@ -1,6 +1,7 @@
-{{ form_start(form, { method: 'POST', action: path('comment_new', { 'slug': post.slug }) }) }}
+{{ form_start(form, { method: 'POST', action: path('blog_comment_new', { 'slug': post.slug }) }) }}
 <fieldset>
     <legend>Add a comment</legend>
     {{ form_widget(form) }}
+    <button class="btn btn-primary pull-right">Submit comment</button>
 </fieldset>
 {{ form_end(form) }}
